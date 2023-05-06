@@ -284,3 +284,4 @@ C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall\obj\De
 C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall\obj\Debug\net7.0\DeltaBall.genruntimeconfig.cache
 C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall\obj\Debug\net7.0\ref\DeltaBall.dll
 C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall\obj\Debug\net7.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall\obj\Debug\net7.0\scopedcss\Areas\Player\Views\Shared\_Layout.cshtml.rz.scp.css

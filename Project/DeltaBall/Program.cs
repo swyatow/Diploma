@@ -41,10 +41,10 @@ builder.Services.AddAuthorization(x =>
 });
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
 builder.Services.AddRazorPages();
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+    options.User.AllowedUserNameCharacters = "àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞß -";
     options.User.RequireUniqueEmail = true;
     options.Password.RequiredLength = 6;
     options.Password.RequireNonAlphanumeric = true;
@@ -85,6 +85,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "client",
+    pattern: "{area:exists}/{controller=Home}/{action=Profile}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

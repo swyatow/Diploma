@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Player\Models\" />
   </ItemGroup>
 
 </Project>

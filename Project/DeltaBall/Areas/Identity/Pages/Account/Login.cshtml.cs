@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace DeltaBall.Areas.Identity.Pages.Account
 {
@@ -83,11 +84,11 @@ namespace DeltaBall.Areas.Identity.Pages.Account
                     if (_userManager.IsInRoleAsync(user, "Admin").Result)
                         return LocalRedirect("/admin");
                     else
-                        return LocalRedirect("/client");
+                        return LocalRedirect("/player");
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning($"User {user.UserName} account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else
