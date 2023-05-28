@@ -10,12 +10,18 @@ namespace DeltaBall.Data.Models
         [Display(Name = "Номер п/п")]
         public int Id { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Название причины")]
         public string Name { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Описание причины")]
         public string Description { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Множитель опыта")]
         public int Multiplier { get; set; }
     }

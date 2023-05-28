@@ -8,12 +8,14 @@
     ".NETCoreApp,Version=v7.0": {
       "DeltaBall/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "7.0.3",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "7.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.5",
           "Microsoft.AspNetCore.Identity.UI": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6"
+          "Microsoft.TypeScript.MSBuild": "3.0.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6",
+          "bootstrap-select": "1.13.18"
         },
         "runtime": {
           "DeltaBall.dll": {}
@@ -53,6 +55,17 @@
           }
         }
       },
+      "bootstrap/3.0.0": {
+        "dependencies": {
+          "jQuery": "1.9.1"
+        }
+      },
+      "bootstrap-select/1.13.18": {
+        "dependencies": {
+          "bootstrap": "3.0.0",
+          "jQuery": "1.9.1"
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -61,6 +74,7 @@
           }
         }
       },
+      "jQuery/1.9.1": {},
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.5": {
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -80,14 +94,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/7.0.3": {
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/7.0.5": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "7.0.5"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
-            "assemblyVersion": "7.0.3.0",
-            "fileVersion": "7.0.323.8009"
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.523.17410"
           }
         }
       },
@@ -1237,6 +1251,7 @@
           }
         }
       },
+      "Microsoft.TypeScript.MSBuild/3.0.0": {},
       "Microsoft.VisualStudio.Web.CodeGeneration/7.0.6": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
@@ -2399,12 +2414,33 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
+    "bootstrap/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d1JUd1ZjfbhGGTxjBSjCLIV+O//hZDcvI0hnaeTL3VHAD+6Z89vgPwV0K/nmPM4hZKq172iPV55lCSpohT6WmA==",
+      "path": "bootstrap/3.0.0",
+      "hashPath": "bootstrap.3.0.0.nupkg.sha512"
+    },
+    "bootstrap-select/1.13.18": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ArC0wRl1xqpwEdxRnodYo3qnhyiiGgAevYRGoQIjg/LqfY7nQ3dK0YYQFTrHyDvI5BbIzSgiG6uuR6OqbvxyHg==",
+      "path": "bootstrap-select/1.13.18",
+      "hashPath": "bootstrap-select.1.13.18.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "jQuery/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HiX9icLyiJGgiL5EOIn0d1MBPHVV2M9mzWT4mANdniDNR51RvAFTyKEXEd2+5yQJ4PJ5xePOR61Vjj/omQzYcw==",
+      "path": "jquery/1.9.1",
+      "hashPath": "jquery.1.9.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.5": {
       "type": "package",
@@ -2420,12 +2456,12 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/7.0.5",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.7.0.5.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/7.0.3": {
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/7.0.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lI0iHMAme68hJwQ66u3gA8Ku/gm7glKOueD5iCet+XfTbtQ0lTI89UmPNS9lDC2RfY5FfujAf/Trx23hvry98Q==",
-      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.3",
-      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.3.nupkg.sha512"
+      "sha512": "sha512-nknm2oPdkR4OyXoVqk5/a1b6edGnBB0fiF9KcLye6Vj4vjaiKoEfmDupBporaJm9dYe58YIYeQB0fqrtOFgJeQ==",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.5",
+      "hashPath": "microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.5.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.5": {
       "type": "package",
@@ -2846,6 +2882,13 @@
       "sha512": "sha512-N4KeF3cpcm1PUHym1RmakkzfkEv3GRMyofVv40uXsQhCQeglr2OHNcUk2WOG51AKpGO8ynGpo9M/kFXSzghwug==",
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
+    },
+    "Microsoft.TypeScript.MSBuild/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HmkvgHe76SlTOJTBLiBkZPAJfiHb1WIz1uVpaJSA88TA+4TcvDaUcGN08kUS7JWaiRiMgAVTQGz7LoyIpHK+Sg==",
+      "path": "microsoft.typescript.msbuild/3.0.0",
+      "hashPath": "microsoft.typescript.msbuild.3.0.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/7.0.6": {
       "type": "package",

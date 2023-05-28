@@ -12,6 +12,45 @@ namespace DeltaBall.Data.Repositories
             _context = context;
         }
 
+        /// <summary>
+        /// Получает информацию об участике игры
+        /// </summary>
+        /// <param name="id">ID участника</param>
+        /// <returns></returns>
+		public Player GetPlayerById(Guid id)
+		{
+			return _context.Players.FirstOrDefault(x => x.Id == id);
+		}
+
+        /// <summary>
+        /// Возвращает список всех участников конкретной игры
+        /// </summary>
+        /// <param name="id">ID игры</param>
+        /// <returns></returns>
+		public IEnumerable<Player> GetPlayersForGame(Guid id)
+		{
+			return _context.Players.Where(x => x.GameId == id).ToList();
+		}
+
+        /// <summary>
+        /// Сохраняет запись об участии игрока в базе данных
+        /// </summary>
+        /// <param name="obj">Запись об участии игрока</param>
+        public void SavePlayer(Player obj)
+        {
+            if (_context.Players.Any(x => x.Id == obj.Id))
+                _context.Entry(obj).State = EntityState.Modified;
+            else
+                _context.Entry(obj).State = EntityState.Added;
+
+            _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Удаляет запись на игру выбранного участника
+        /// </summary>
+        /// <param name="obj">Запись об участии игрока</param>
+        /// <returns></returns>
         public bool DeletePlayer(Player obj)
         {
             if (_context.Players.Any(x => x.Id == obj.Id))
@@ -21,26 +60,6 @@ namespace DeltaBall.Data.Repositories
                 return true;
             }
             return false;
-        }
-
-        public Player GetPlayerById(Guid id)
-        {
-            return _context.Players.FirstOrDefault(x => x.Id == id);
-        }
-
-        public IEnumerable<Player> GetPlayersForGame(Guid id)
-        {
-            return _context.Players.Where(x => x.GameId == id);
-        }
-
-        public void SavePlayer(Player obj)
-        {
-            if (_context.Players.Any(x => x.Id == obj.Id))
-                _context.Entry(obj).State = EntityState.Added;
-            else
-                _context.Entry(obj).State = EntityState.Modified;
-
-            _context.SaveChanges();
         }
     }
 }

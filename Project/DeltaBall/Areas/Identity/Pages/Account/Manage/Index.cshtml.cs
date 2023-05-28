@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using DeltaBall.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,60 +17,57 @@ namespace DeltaBall.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly DataManager _dataManager;
 
         public IndexModel(
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            DataManager dataManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _dataManager = dataManager;
         }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public string Username { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [TempData]
         public string StatusMessage { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
+            [Required]
+            [Display(Name = "Фамилия Имя Отчество")]
+            public string UserName { get; set; }
+
+            [Required]
             [Phone]
-            [Display(Name = "Phone number")]
+            [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{9,9}$",
+                   ErrorMessage = "Введеный номер телефона не подходит. Правильная форма: 8(123)456-78-90.")]
+            [Display(Name = "Номер телефона")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            [EmailAddress]
+            [Display(Name = "Адрес электронной почты")]
+            public string Email { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            var email = await _userManager.GetEmailAsync(user);
 
-            Username = userName;
+            //Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                UserName = userName,
+                PhoneNumber = phoneNumber,
+                Email = email
             };
         }
 
@@ -78,7 +76,7 @@ namespace DeltaBall.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Невозможно загрузить пользователя '{_userManager.GetUserId(User)}'.");
             }
 
             await LoadAsync(user);
@@ -90,7 +88,7 @@ namespace DeltaBall.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Невозможно загрузить пользователя '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -99,19 +97,18 @@ namespace DeltaBall.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
+            var client = _dataManager.Clients.GetClientById(Guid.Parse(user.Id));
+            client.FullName = Input.UserName;
+            client.PhoneNumber = Input.PhoneNumber;
+            client.Email = Input.Email;
 
-            await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            if(await _dataManager.Clients.SaveClientAsync(client, null))
+            {
+                await _signInManager.RefreshSignInAsync(user);
+                StatusMessage = "Ваши данные сохранены успешно.";
+            }
+            else 
+                StatusMessage = "Непредвиденная ошибка возникла при сохранении данных! Повторите позже.";
             return RedirectToPage();
         }
     }

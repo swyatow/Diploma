@@ -16,8 +16,112 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\slava\Desktop\доки\ДЗ\4 курс\Diploma\Project\DeltaBall
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Client/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2xpZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Client/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2xpZW50XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Client/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2xpZW50XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameScenario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVNjZW5hcmlvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameScenario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVNjZW5hcmlvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameScenario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVNjZW5hcmlvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameStatus/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVN0YXR1c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameStatus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVN0YXR1c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameStatus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVN0YXR1c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameType/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVR5cGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameType/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVR5cGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/GameType/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2FtZVR5cGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Price/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Price/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Price/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJpY2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Rank/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUmFua1xJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/ShootRange/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvb3RSYW5nZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/ShootRange/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvb3RSYW5nZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/ShootRange/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hvb3RSYW5nZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/Table/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFibGVcSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/UserExpChangeMode/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlckV4cENoYW5nZU1vZGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/UserExpChangeMode/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlckV4cENoYW5nZU1vZGVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/UserExpChangeMode/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlckV4cENoYW5nZU1vZGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/UserExpChange/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlckV4cENoYW5nZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/UserExpChange/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlckV4cENoYW5nZVxJbmZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Admin/Views/_ValidationScriptsPartial.cshtml]
@@ -48,20 +152,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/Email.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
@@ -88,8 +192,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/Game/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGxheWVyXFZpZXdzXEdhbWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/Game/Info.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGxheWVyXFZpZXdzXEdhbWVcSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/Game/Invite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGxheWVyXFZpZXdzXEdhbWVcSW52aXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/Home/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGxheWVyXFZpZXdzXEhvbWVcUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGxheWVyXFZpZXdzXFNoYXJlZFxfTG9naW5QYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Areas/Player/Views/_ValidationScriptsPartial.cshtml]
@@ -106,10 +226,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/slava/Desktop/доки/ДЗ/4 курс/Diploma/Project/DeltaBall/Views/Shared/Error.cshtml]

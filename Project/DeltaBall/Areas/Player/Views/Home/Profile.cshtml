@@ -1,1 +1,159 @@
-﻿<h1>Профиль игрока</h1>
+﻿@model Client
+@{
+	int remainExp = Model.Rank.MaxExp - Model.Experience + 1;
+	var scheduleGames = (ViewData["ScheduledGames"] as IEnumerable<Player>).Where(x => x.Game.StatusId == 4);
+	var endedGames = (ViewData["ScheduledGames"] as IEnumerable<Player>).Where(x => x.Game.StatusId == 6);
+	var history = ViewData["History"] as IEnumerable<UserExpChange>;
+}
+
+<div class="container-xxl py-5">
+	<div class="container">
+		<div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+			<h1 class="text-uppercase">Профиль игрока</h1>
+		 </div>
+		 <div class="row g-4">
+			<!--Card Start-->
+			<div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+				<div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+					<div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+						<span class="fa fa-user text-primary text-uppercase"></span>
+					</div>
+					<div class="ps-4">
+						<h3 class="text-uppercase mb-3">Данные профиля</h3>
+						<div class="row d-flex">
+							<div>
+								<h5 class="text-white">@Html.DisplayNameFor(x=>x.FullName)</h5>
+								<p>@Model.FullName</p>
+							</div>
+							<div>
+								<h5 class="text-white">@Html.DisplayNameFor(x=>x.Email)</h5>
+								<p>@Model.Email</p>
+							</div>
+							<div>
+								<h5 class="text-white">@Html.DisplayNameFor(x=>x.PhoneNumber)</h5>
+								<p>@Model.PhoneNumber</p>							
+								<a asp-action="Create" asp-area="Player" asp-controller="Game" class="p-2">Создать игру</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Card End-->
+			<!--Card Start-->
+			<div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+				<div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+					<div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+						<i class="fa fa-user-graduate text-primary"></i>
+					</div>
+					<div class="ps-4">
+						<h3 class="text-uppercase mb-3">Ваш ранг - <strong class="text-uppercase text-primary">@Model.Rank.Name</strong></h3>
+						<div>
+							<img class="rounded img-thumbnail p-2 m-3" width="200" height="200"
+								src="@Url.Action("GetRankImage", "Home", new { id = Model.RankId })" />
+							<div>
+								<h5 class="text-white">Ваш текущий опыт</h5>
+								<p class="text-primary"><strong>@Model.Experience</strong></p>
+							</div>
+							<div>
+								<h5 class="text-white">До следующего ранга не хватает</h5>
+								<p class="text-primary"><strong>@remainExp</strong> опыта</p>
+							</div>
+							<div>
+								<h5 class="text-white">Ваша скидка составляет</h5>
+								<p class="text-primary"><strong>@Model.Rank.Discount%</strong></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--Card End-->
+			<!--Card Start-->
+			<div class="col-lg-12 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+				<div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+					<div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
+						<i class="fa fa-history text-primary"></i>
+					</div>
+					<div class="col ps-4">
+						<h3 class="text-uppercase mb-3">История игр</h3>
+						<!-- Nav Tabs Start -->
+						<ul class="nav nav-tabs nav-justified mb-3">
+							<li class="nav-item">
+								<a class="nav-link active" data-bs-toggle="tab" href="#scheduleGames">Запланированные игры</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="tab" href="#endedGames">Завершенные игры</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="tab" href="#history">История начисления опыта</a>
+							</li>
+						</ul>
+						<!-- Nav Tabs End -->
+
+						<!-- Tab Panes Start -->
+						<div class="tab-content">
+							<div class="tab-pane container active" id="scheduleGames">
+								@if (scheduleGames.Any())
+								{
+									<ul class="list-group">
+										@foreach (var item in scheduleGames)
+										{
+											<li class="list-group-item" style="background-color: #42495E;">
+												<h3>@item.Game.Name</h3>
+												<a asp-action="Info" asp-area="Player" asp-controller="Game" asp-route-id="@item.Game.Id" class="btn btn-light-indigo">Подробно</a>
+											</li>
+										}										
+									</ul>
+								} else
+								{
+									<div class="alert alert-warning">
+										Вы еще не записаны ни на одну игру!
+									</div>
+								}
+							</div>
+							<div class="tab-pane container fade" id="endedGames">
+								@if (endedGames.Any())
+								{
+									<ul class="list-group">
+										@foreach (var item in endedGames)
+										{
+											<li class="list-group-item">
+												First item
+											</li>
+										}
+									</ul>
+								}
+								else
+								{
+									<div class="alert alert-warning">
+										Вы еще не завершили ни одной игры!
+									</div>
+								}
+							</div>
+							<div class="tab-pane container fade" id="history">
+								@if (history.Any())
+								{
+									<ul class="list-group">
+										@foreach (var item in history)
+										{
+											<li class="list-group-item">
+												First item
+											</li>
+										}
+									</ul>
+								}
+								else
+								{
+									<div class="alert alert-warning">
+										Вы еще не завершили ни одной игры!
+									</div>
+								}
+							</div>
+						</div>
+						<!-- Tab Panes Start -->
+					</div>
+				</div>
+			</div>
+			<!--Card End-->
+		 </div>
+	</div>
+</div>

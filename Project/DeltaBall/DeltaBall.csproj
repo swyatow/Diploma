@@ -5,17 +5,25 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-DeltaBall-49c0e8a5-ddfc-4851-92d3-e84372014db9</UserSecretsId>
+    <StartupObject></StartupObject>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Images\**" />
+    <Compile Remove="wwwroot\adminArea\libs\simplebar\**" />
     <Content Remove="Images\**" />
+    <Content Remove="wwwroot\adminArea\libs\simplebar\**" />
     <EmbeddedResource Remove="Images\**" />
+    <EmbeddedResource Remove="wwwroot\adminArea\libs\simplebar\**" />
     <None Remove="Images\**" />
+    <None Remove="wwwroot\adminArea\libs\simplebar\**" />
+    <TypeScriptCompile Remove="wwwroot\adminArea\libs\simplebar\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="bootstrap-select" Version="1.13.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
@@ -23,12 +31,156 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Player\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\adminArea\css\icons\tabler-icons\fonts\tabler-icons.svg" />
+    <None Include="wwwroot\adminArea\css\icons\tabler-icons\fonts\tabler-icons.woff2" />
+    <None Include="wwwroot\adminArea\images\logos\dark-logo.svg" />
+    <None Include="wwwroot\adminArea\js\app.min.js" />
+    <None Include="wwwroot\adminArea\js\dashboard.js" />
+    <None Include="wwwroot\adminArea\js\sidebarmenu.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\dist\apexcharts.amd.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\dist\apexcharts.common.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\dist\apexcharts.esm.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\dist\apexcharts.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\dist\apexcharts.min.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\LICENSE" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\README.md" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\apexcharts.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-camera.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-home.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-menu.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-minus-square.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-minus.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-pan-hand.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-pan.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-plus-square.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-plus.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-refresh.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-reset.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-select.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-select1.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-zoom-in.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-zoom-out.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\assets\ico-zoom.svg" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Bar.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\BarStacked.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\BoxCandleStick.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\common\bar\DataLabels.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\common\bar\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\common\circle\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\common\line\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\common\treemap\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\HeatMap.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Line.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Pie.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Radar.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Radial.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\RangeBar.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Scatter.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\charts\Treemap.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\libs\Treemap-squared.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Animations.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\annotations\Annotations.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\annotations\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\annotations\PointsAnnotations.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\annotations\XAxisAnnotations.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\annotations\YAxisAnnotations.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\axes\Axes.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\axes\AxesUtils.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\axes\Grid.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\axes\XAxis.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\axes\YAxis.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Base.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Core.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\CoreUtils.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Crosshairs.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Data.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\DataLabels.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\dimensions\Dimensions.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\dimensions\Grid.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\dimensions\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\dimensions\XAxis.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\dimensions\YAxis.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Events.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Exports.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Fill.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Filters.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Formatters.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Graphics.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\helpers\Destroy.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\helpers\InitCtxVariables.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\helpers\Localization.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\helpers\UpdateHelpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\legend\Helpers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\legend\Legend.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Markers.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Range.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Responsive.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Scales.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Series.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\settings\Config.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\settings\Defaults.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\settings\Globals.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\settings\Options.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Theme.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\TimeScale.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\TitleSubtitle.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\Toolbar.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\AxesTooltip.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Intersect.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Labels.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Marker.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Position.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\README.md" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Tooltip.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\tooltip\Utils.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\modules\ZoomPanSelection.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\svgjs\svg.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\utils\DateTime.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\utils\Resize.js" />
+    <None Include="wwwroot\adminArea\libs\apexcharts\src\utils\Utils.js" />
+    <None Include="wwwroot\adminArea\scss\component\_card.scss" />
+    <None Include="wwwroot\adminArea\scss\component\_reboot.scss" />
+    <None Include="wwwroot\adminArea\scss\layouts\_header.scss" />
+    <None Include="wwwroot\adminArea\scss\layouts\_layouts.scss" />
+    <None Include="wwwroot\adminArea\scss\layouts\_sidebar.scss" />
+    <None Include="wwwroot\adminArea\scss\pages\_dashboard1.scss" />
+    <None Include="wwwroot\adminArea\scss\prepros.config" />
+    <None Include="wwwroot\adminArea\scss\styles.scss" />
+    <None Include="wwwroot\adminArea\scss\utilities\_background.scss" />
+    <None Include="wwwroot\adminArea\scss\utilities\_icon-size.scss" />
+    <None Include="wwwroot\adminArea\scss\variables\_theme-variables.scss" />
+    <None Include="wwwroot\adminArea\scss\variables\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\adminArea\libs\apexcharts\types\apexcharts.d.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

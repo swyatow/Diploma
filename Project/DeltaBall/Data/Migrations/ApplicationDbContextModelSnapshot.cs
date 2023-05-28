@@ -17,7 +17,7 @@ namespace DeltaBall.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -158,9 +158,6 @@ namespace DeltaBall.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("GameScenarioId")
-                        .HasColumnType("int");
-
                     b.Property<int>("GameTypeId")
                         .HasColumnType("int");
 
@@ -172,9 +169,9 @@ namespace DeltaBall.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GameScenarioId");
-
                     b.HasIndex("GameTypeId");
+
+                    b.HasIndex("ScenarioId");
 
                     b.ToTable("Prices");
                 });
@@ -476,16 +473,16 @@ namespace DeltaBall.Data.Migrations
                         {
                             Id = "41dd2d65-6650-4cce-b3fd-dead95a3ee7a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e4bd5fff-4956-4a0f-937b-3ca70e63d22d",
+                            ConcurrencyStamp = "8205431a-52b3-4376-8b23-edad3d008eff",
                             Email = "ivanov_delta@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "IVANOV_DELTA@GMAIL.COM",
                             NormalizedUserName = "ИВАНОВ ИВАН ИВАНОВИЧ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB28OQLcebHOGhUd+TQ1fWN9t9xofDE2AmVQmxwCYb0nGZB+U3XZ+cYt3mzMD/nHjQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAvD0lOvuVrNGA2jRrbNVO0o9X3EAK5qcGXSRpx3yPkqGAuU356mrPeD8lCsme78AQ==",
                             PhoneNumber = "8(123)456-78-90",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "5f4c30ac-ce7a-4684-b7bc-ce794bfe80ab",
+                            SecurityStamp = "78420da6-610f-409c-90bf-be773ae34341",
                             TwoFactorEnabled = false,
                             UserName = "Иванов Иван Иванович"
                         },
@@ -493,16 +490,16 @@ namespace DeltaBall.Data.Migrations
                         {
                             Id = "ce301bc6-b3f6-4ff7-b425-bd4777a1e9ac",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e4a7c51c-4010-475f-97e3-8b256ecaf6c0",
+                            ConcurrencyStamp = "c91b08ea-7c19-4593-8ea9-f82cf0702127",
                             Email = "slavanovosyolov@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SLAVANOVOSYOLOV@GMAIL.COM",
                             NormalizedUserName = "НОВОСЕЛОВ СВЯТОСЛАВ ДМИТРИЕВИЧ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFLZ3Sm3UYEJuo8z1s4NzFzQ0rO3lf3Alwdaswj8p+Q24lFsT1dm9nyskGm2OLdGQA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGcYNu76QzkhBoQsWCQ+i4jxUMP4GH8k6Q5hvXDmilv3RkUTFRbycN/dkEm5rCyHKA==",
                             PhoneNumber = "8(123)456-78-91",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b4b0eae7-847e-497a-bc93-f3362cc2578a",
+                            SecurityStamp = "5cd87cdc-07c3-498c-92cf-6a8d2f64a230",
                             TwoFactorEnabled = false,
                             UserName = "Новоселов Святослав Дмитриевич"
                         });
@@ -536,12 +533,10 @@ namespace DeltaBall.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -578,12 +573,10 @@ namespace DeltaBall.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -625,21 +618,21 @@ namespace DeltaBall.Data.Migrations
 
             modelBuilder.Entity("DeltaBall.Data.Models.Price", b =>
                 {
-                    b.HasOne("DeltaBall.Data.Models.GameScenario", "GameScenario")
-                        .WithMany()
-                        .HasForeignKey("GameScenarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("DeltaBall.Data.Models.GameType", "GameType")
                         .WithMany()
                         .HasForeignKey("GameTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("GameScenario");
+                    b.HasOne("DeltaBall.Data.Models.GameScenario", "Scenario")
+                        .WithMany()
+                        .HasForeignKey("ScenarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("GameType");
+
+                    b.Navigation("Scenario");
                 });
 
             modelBuilder.Entity("DeltaBall.Data.Models.ScheduleGame", b =>

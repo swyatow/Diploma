@@ -4,12 +4,14 @@ d4l1a
 ---
 Admin
 ivanov_delta@gmail.com
-1van0v_d1l4a
+1van0v_d1l4A
+
 ---
 Clients
 slavanovosyolov@gmail.com
-sla39457195
+Sla-39457195
 
-Петров Петр Петрович
-petrov@mail.com
-Ss-123456
+Сидоров Сидор Сидорович
+8(912)245-98-95
+sidorov@mail.com
+Sid-12345678

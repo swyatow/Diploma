@@ -51,7 +51,7 @@ namespace DeltaBall.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомнить меня?")]
             public bool RememberMe { get; set; }
         }
 
@@ -64,7 +64,7 @@ namespace DeltaBall.Areas.Identity.Pages.Account
 
             returnUrl ??= Url.Content("~/");
 
-            // Clear the existing external cookie to ensure a clean login process
+            // Очистка существующих куки
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ReturnUrl = returnUrl;
@@ -77,10 +77,15 @@ namespace DeltaBall.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(Input.Email);
-                var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                if (user == null)
+                {
+					ModelState.AddModelError(string.Empty, "Непраильная почта и/или пароль. Повторите ввод.");
+					return Page();
+				} 
+				var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation($"User {user.UserName} logged in.");
+                    _logger.LogInformation($"Польхователь {user.UserName} авторизовался.");
                     if (_userManager.IsInRoleAsync(user, "Admin").Result)
                         return LocalRedirect("/admin");
                     else
@@ -88,12 +93,12 @@ namespace DeltaBall.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning($"User {user.UserName} account locked out.");
+                    _logger.LogWarning($"Пользователь {user.UserName} заблокирован.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Непраильная почта и/или пароль. Повторите ввод.");
                     return Page();
                 }
             }

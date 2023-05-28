@@ -1,0 +1,60 @@
+﻿@model DeltaBall.Data.Models.UserExpChange
+@{
+    int itog = Model.ChangeMode.Multiplier * Model.DeltaExp;
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">@ViewData["Title"]</h5>
+        <div class="card rounded mb-0">
+            <div class="row p-3">
+                <div class="col-md-10">
+                    <h3>Вы уверены, что хотите удалить данный опыт?</h3>
+                    <div>
+                        <dl class="row">
+                            <dt class="col-md-10 p-3 py-1">
+                                @Html.DisplayNameFor(model => model.Client)
+                            </dt>
+                            <dd class="col-md-10 p-3 py-1">
+                                @Html.DisplayFor(model => model.Client.FullName)
+                            </dd>
+                            <dt class="col-md-10 p-3 py-1">
+                                @Html.DisplayNameFor(model => model.ChangeMode)
+                            </dt>
+                            <dd class="col-md-10 p-3 py-1">
+                                @Html.DisplayFor(model => model.ChangeMode.Name)
+                            </dd>
+                            <dt class="col-md-10 p-3 py-1">
+                                @Html.DisplayNameFor(model => model.DeltaExp)
+                            </dt>
+                            <dd class="col-md-10 p-3 py-1">
+                                @Html.DisplayFor(model => model.DeltaExp)
+                            </dd>
+                            <dt class="col-md-10 p-3 py-1">
+                                Итого опыта
+                            </dt>
+                            <dd class="col-md-10 p-3 py-1">
+                                @itog
+                            </dd>
+                            <dt class="col-md-10 p-3 py-1">
+                                @Html.DisplayNameFor(model => model.ChangeDate)
+                            </dt>
+                            <dd class="col-md-10 p-3 py-1">
+                                @Html.DisplayFor(model => model.ChangeDate)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="p-3">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Подтвердить" class="btn btn-danger px-2" />
+                    <a asp-area="Admin" asp-controller="Table" asp-action="Info" asp-route-name="Clients" class="btn btn-outline-info">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />

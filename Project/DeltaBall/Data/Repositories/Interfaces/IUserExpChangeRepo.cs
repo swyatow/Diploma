@@ -8,7 +8,9 @@ namespace DeltaBall.Data.Repositories.Interfaces
 
         public IEnumerable<UserExpChange> GetExpChanges();
 
-        public void SaveExpChange(UserExpChange obj);
+        public IEnumerable<UserExpChange> GetExpChangeByPlayer(Guid id);
+
+		public void SaveExpChange(UserExpChange obj);
 
         public bool DeleteExpChange(UserExpChange obj);
     }

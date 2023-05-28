@@ -9,9 +9,13 @@ namespace DeltaBall.Data.Models
         [Display(Name = "Номер п/п")]
         public int Id { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "Название сценария")]
         public string Name { get; set; }
 
+        [Required]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Краткое описание сценария")]
         public string Description { get; set; }
     }

@@ -12,35 +12,37 @@ namespace DeltaBall.Data.Repositories
             _context = context;
         }
 
-        public GameStatus GetStatusById(int id)
+		/// <summary>
+		/// Возвращает конкретный статус игры по его ID
+		/// </summary>
+		/// <param name="id">ID статуса</param>
+		/// <returns></returns>
+		public GameStatus GetStatusById(int id)
         {
             return _context.GameStatuses.FirstOrDefault(x => x.Id == id);
         }
 
+        /// <summary>
+        /// Возвращает всее статусы игр
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<GameStatus> GetStatuses()
         {
-            return _context.GameStatuses;
+            return _context.GameStatuses.ToList();
         }
 
-        public void SaveStatus(GameStatus obj)
+		/// <summary>
+		/// Сохраняет или обновляет указанный сценарий в базе данных
+		/// </summary>
+		/// <param name="obj"></param>
+		public void SaveStatus(GameStatus obj)
         {
             if (_context.GameStatuses.Any(x => x.Id == obj.Id))
-                _context.Entry(obj).State = EntityState.Added;
-            else
                 _context.Entry(obj).State = EntityState.Modified;
+            else
+                _context.Entry(obj).State = EntityState.Added;
 
             _context.SaveChanges();
-        }
-
-        public bool DeleteStatus(GameStatus obj)
-        {
-            if (_context.GameStatuses.Any(x => x.Id == obj.Id))
-            {
-                _context.Entry(obj).State = EntityState.Deleted;
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
         }
     }
 }

@@ -1,50 +1,108 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DeltaBall.styles.css" asp-append-version="true" />
+
+    <title>@ViewData["Title"] - DeltaBall</title>
+
+    @*Fonts*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Oswald:wght@600&display=swap" rel="stylesheet">
+
+    @*Icons*@
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/common/lib/animate/animate.min.css">
+    <link rel="stylesheet" href="~/common/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/common/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/common/css/style.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DeltaBall</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+<body >
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Загрузка...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a asp-action="Index" asp-area="" asp-controller="Home" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="mb-0 text-primary text-uppercase"><i class="fa fa-mandalorian me-2"></i>DeltaBall</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a asp-action="Index" asp-area="" asp-controller="Home" class="nav-item nav-link active">Главная</a>
+                <a href="/Home/Index#ranges" class="nav-item nav-link active">Наши полигоны</a>
+                <a href="/Home/Index#faq" class="nav-item nav-link active">FAQ</a>
+                <a href="/Home/Index#contacts" class="nav-item nav-link active">Контакты</a>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    @RenderBody()
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" id="contacts" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-6 col-md-8">
+                    <h4 class="text-uppercase mb-4">Связаться с нами</h4>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="btn-square bg-dark flex-shrink-0 me-3">
+                            <span class="fa fa-phone-alt text-primary"></span>
+                        </div>
+                        <span>+7(981)123-45-80</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="btn-square bg-dark flex-shrink-0 me-3">
+                            <span class="fa fa-envelope-open text-primary"></span>
+                        </div>
+                        <span>ivanov_delta@gmail.com</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8">
+                    <h4 class="text-uppercase mb-4">Быстрый переход</h4>
+                    <a class="btn btn-link" asp-action="Profile" asp-area="Player" asp-controller="Home">Профиль</a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - DeltaBall - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">DeltaBall</a>, Все права защищены.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Дизайн: <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        <br>Распространение: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!--Scripts-->
+    <script src="~/common/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/common/js/main.js" asp-append-version="true"></script>
+    <script src="~/common/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    <script src="~/common/lib/wow/wow.min.js"></script>
+    <script src="~/common/lib/easing/easing.min.js"></script>
+    <script src="~/common/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/common/lib/owlcarousel/owl.carousel.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -99,28 +100,18 @@ namespace DeltaBall.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
-                await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                user.PhoneNumber = Input.PhoneNumber;
-                user.LockoutEnabled = false;
-                user.TwoFactorEnabled = false;
-                user.PhoneNumberConfirmed = true;
-                user.EmailConfirmed = true;
-                var result = await _userManager.CreateAsync(user, Input.Password);
-
-                if (result.Succeeded)
+				Client newClient = new Client()
+				{
+					Email = Input.Email,
+					Experience = 0,
+					FullName = Input.UserName,
+					PhoneNumber = Input.PhoneNumber,
+					RankId = 1
+				};
+                if (await _dataManager.Clients.SaveClientAsync(newClient, Input.Password))
                 {
-                    await _userManager.AddToRoleAsync(user, "Client");
-                    Client newClient = new Client()
-                    {
-                        Email = Input.Email,
-                        Experience = 0,
-                        FullName = Input.UserName,
-                        PhoneNumber = Input.PhoneNumber,
-                        RankId = 1
-                    };
-                    _dataManager.Clients.SaveClient(newClient);
+                    var user = _userManager.FindByEmailAsync(newClient.Email).Result;
+
                     _logger.LogInformation($"User {user.UserName} created a new account with password.");
 
                     //var userId = await _userManager.GetUserIdAsync(user);
@@ -145,28 +136,12 @@ namespace DeltaBall.Areas.Identity.Pages.Account
                     return LocalRedirect("/player");
                     //}
                 }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                else
+                    ModelState.AddModelError(string.Empty, "Invalid register attempt! Try later.");
             }
 
             // If we got this far, something failed, redisplay form
             return Page();
-        }
-
-        private IdentityUser CreateUser()
-        {
-            try
-            {
-                return Activator.CreateInstance<IdentityUser>();
-            }
-            catch
-            {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
-            }
         }
 
         private IUserEmailStore<IdentityUser> GetEmailStore()

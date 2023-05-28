@@ -9,17 +9,20 @@ namespace DeltaBall.Data.Models
         [Display(Name = "Номер п/п")]
         public int Id { get; set; }
 
+        [Required]
         [Display(Name = "Цена для одного человека")]
         public int Value { get; set; }
 
+        [Required]
         [Display(Name = "Сценарий")]
         public int ScenarioId { get; set; }
         [Display(Name = "Сценарий")]
-        public GameScenario GameScenario { get; set; }
+        public GameScenario Scenario { get; set; }
 
-        [Display(Name = "Тип игры")]
+        [Required]
+        [Display(Name = "Режим игры")]
         public int GameTypeId { get; set; }
-        [Display(Name = "Тип игры")]
+        [Display(Name = "Режим игры")]
         public GameType GameType { get; set; }
     }
 }

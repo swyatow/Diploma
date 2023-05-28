@@ -9,7 +9,5 @@ namespace DeltaBall.Data.Repositories.Interfaces
         public IEnumerable<GameStatus> GetStatuses();
 
         public void SaveStatus(GameStatus obj);
-
-        public bool DeleteStatus(GameStatus obj);
     }
 }

@@ -1,0 +1,34 @@
+﻿@model DeltaBall.Data.Models.GameStatus
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">@ViewData["Title"]</h5>
+        <div class="card rounded mb-0">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group p-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group p-3">
+                            <input type="submit" value="Сохранить" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr />
+            <div class="p-3">
+                <a asp-area="Admin" asp-controller="Table" asp-action="Info" asp-route-name="GameStatuses" class="btn btn-outline-info">Вернуться</a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

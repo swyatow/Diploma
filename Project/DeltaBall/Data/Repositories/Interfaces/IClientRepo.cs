@@ -1,7 +1,8 @@
 ﻿using DeltaBall.Data.Models;
+using System.ComponentModel;
 
 namespace DeltaBall.Data.Repositories.Interfaces
-{
+{    
     public interface IClientRepo
     {
         /// <summary>
@@ -21,7 +22,7 @@ namespace DeltaBall.Data.Repositories.Interfaces
         /// Создать нового или изменить существующего клиента
         /// </summary>
         /// <param name="obj">Объект клиента</param>
-        public void SaveClient(Client obj);
+        public Task<bool> SaveClientAsync(Client obj, string password);
 
         /// <summary>
         /// Каскадное удаление клиента из базы 
