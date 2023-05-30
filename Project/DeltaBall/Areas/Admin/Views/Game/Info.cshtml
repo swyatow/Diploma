@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ScheduleGame>
+
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title fw-semibold mb-4">@ViewData["Title"]</h5>
+		<div class="card rounded mb-0">
+			@if (Model.Any())
+			{
+				<table class="table table-hover mb-0">
+					<thead>
+						<tr class="table-primary">
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().Name)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().StartDate)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().Hours)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().Range.Name)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().Price)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().MaxPeoples)
+							</th>
+							<th>
+								<a asp-area="Admin" asp-controller="Game" asp-action="Create" class="btn btn-success m-1">
+									Добавить
+								</a>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var i in Model)
+						{
+							<tr class="table-light">
+								<td class="col">
+									@i.Name
+								</td>
+								<td class="col">
+									@i.StartDate
+								</td>
+								<td class="col">
+									@i.Hours
+								</td>
+								<td class="col">
+									@i.Range.Name
+								</td>
+								<td class="col">
+									@i.Price
+								</td>
+								<td class="col">
+									@i.MaxPeoples
+								</td>
+								<td>
+									<div class="d-flex flex-center">
+										<a asp-area="Admin" asp-controller="Game" asp-action="Edit" asp-route-id="@i.Id" class="btn btn-warning m-1 px-1">
+											Редактировать
+										</a>
+										<a asp-area="Admin" asp-controller="Game" asp-action="Delete" asp-route-id="@i.Id" class="btn btn-danger m-1 px-1">
+											Удалить
+										</a>
+									</div>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<div class="alert alert-warning" role="alert">
+					<h3>Новых игр не найдено!</h3>
+					<hr />
+					<p>Вы можете добавить игру! </p>
+					<a asp-area="Admin" asp-controller="Game" asp-action="Create" class="btn-sm btn-success m-1 p-1">
+						Добавить
+					</a>
+				</div>
+
+			}
+		</div>
+	</div>
+</div>

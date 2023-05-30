@@ -43,14 +43,14 @@
 						<tr class="table-light">
 								@{
 									var fields = i
-										.GetType()
-										.GetProperties()
-										.Where(x => x.PropertyType == typeof(string)
-										|| (x.PropertyType == typeof(int)
-										&& !AttributeHelper.GetDisplayValue(x).Contains("Номер"))
-										|| x.PropertyType == typeof(double)
-										|| x.PropertyType == typeof(bool)
-										|| x.PropertyType == typeof(DateTime)).ToList();
+												.GetType()
+												.GetProperties()
+												.Where(x => x.PropertyType == typeof(string)
+												|| (x.PropertyType == typeof(int)
+												&& !AttributeHelper.GetDisplayValue(x).Contains("Номер"))
+												|| x.PropertyType == typeof(double)
+												|| x.PropertyType == typeof(bool)
+												|| x.PropertyType == typeof(DateTime)).ToList();
 									foreach (var field in fields)
 									{
 										var value = field.GetValue(i);
@@ -60,7 +60,9 @@
 											{
 												var stringClass = field.Name.Replace("Id", "");
 												var stringNameSpace = "DeltaBall.Data.Models." ;
-												stringNameSpace += stringClass == "Scenario" ? "Game" + stringClass : stringClass;
+												var classNameExt = stringClass == "Scenario" || stringClass == "Type" || stringClass == "Status" ? "Game" + stringClass : stringClass;
+												stringNameSpace += classNameExt;
+												stringNameSpace = stringClass == "Range" ? "DeltaBall.Data.Models.ShootRange" : stringNameSpace;
 												var className = Type.GetType(stringNameSpace);
 												var fieldName = className.GetProperties().First(x => x.Name.Contains("Name"));
 												var instance = i.GetType().GetProperty(stringClass).GetValue(i);

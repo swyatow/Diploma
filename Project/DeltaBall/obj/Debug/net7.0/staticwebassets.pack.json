@@ -2645,22 +2645,6 @@
       "PackagePath": "staticwebassets\\common\\lib\\owlcarousel\\owl.carousel.min.js"
     },
     {
-      "Id": "C:\\Users\\slava\\Desktop\\доки\\ДЗ\\4 курс\\Diploma\\Project\\DeltaBall\\wwwroot\\common\\lib\\waypoints\\links.php",
-      "PackagePath": "staticwebassets\\common\\lib\\waypoints\\links.php"
-    },
-    {
-      "Id": "C:\\Users\\slava\\Desktop\\доки\\ДЗ\\4 курс\\Diploma\\Project\\DeltaBall\\wwwroot\\common\\lib\\waypoints\\waypoints.min.js",
-      "PackagePath": "staticwebassets\\common\\lib\\waypoints\\waypoints.min.js"
-    },
-    {
-      "Id": "C:\\Users\\slava\\Desktop\\доки\\ДЗ\\4 курс\\Diploma\\Project\\DeltaBall\\wwwroot\\common\\lib\\wow\\wow.js",
-      "PackagePath": "staticwebassets\\common\\lib\\wow\\wow.js"
-    },
-    {
-      "Id": "C:\\Users\\slava\\Desktop\\доки\\ДЗ\\4 курс\\Diploma\\Project\\DeltaBall\\wwwroot\\common\\lib\\wow\\wow.min.js",
-      "PackagePath": "staticwebassets\\common\\lib\\wow\\wow.min.js"
-    },
-    {
       "Id": "C:\\Users\\slava\\Desktop\\доки\\ДЗ\\4 курс\\Diploma\\Project\\DeltaBall\\wwwroot\\common\\scss\\bootstrap.scss",
       "PackagePath": "staticwebassets\\common\\scss\\bootstrap.scss"
     },

@@ -1,0 +1,71 @@
+﻿@using System.Globalization;
+@model DeltaBall.Data.Models.ScheduleGame
+@{
+    var datetime = DateTime.Now;
+    string datetimeString = $"{datetime.Date.ToString(new CultureInfo("ja-JP")).Replace('/', '-').Remove(10)}T{datetime.ToString(new CultureInfo("fr-FR")).Substring(11,5)}";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">@ViewData["Title"]</h5>
+        <div class="card rounded mb-0">
+            <div class="row">
+                <div class="col-md-6">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group p-3">
+                            <label asp-for="Name" class="form-label"></label>
+                            <input asp-for="Name" class="form-control" aria-required="true" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group p-1 px-3">
+                            <label asp-for="StartDate" class="form-label"></label>
+                            <input asp-for="StartDate" class="form-control" aria-required="true" min="@datetimeString" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group p-1 px-3">
+                            <label asp-for="Hours" class="form-label"></label>
+                            <input asp-for="Hours" class="form-control" aria-required="true" max="5" step="1" min="1" />
+                            <span asp-validation-for="Hours" class="text-danger"></span>
+                        </div>
+                        <div class="form-group p-1 px-3">
+                            <label asp-for="MaxPeoples" class="form-label"></label>
+                            <input asp-for="MaxPeoples" class="form-control" aria-required="true" min="2" max="20" />
+                            <span asp-validation-for="MaxPeoples" class="text-danger"></span>
+                        </div>
+                        <div class="form-group p-1 px-3">
+                            <label asp-for="RangeId" class="form-label"></label>
+                            <select asp-for="RangeId" class="form-select" asp-items="ViewBag.RangeId"></select>
+                        </div>
+                        <div class="form-group p-1 px-3">
+                            <label asp-for="ScenarioId" class="form-label"></label>
+                            <select asp-for="ScenarioId" class="form-select" asp-items="ViewBag.ScenarioId"></select>
+                        </div>
+                        <div class="form-group p-3">
+                            <label asp-for="TypeId" class="form-label"></label>
+                            <select asp-for="TypeId" class="form-select" asp-items="ViewBag.TypeId"></select>
+                        </div>
+                        <div class="form-group p-3">
+                            <label for="clientId" class="form-label">Создатель игры</label>
+                            <select name="clientId" class="form-select" asp-items="ViewBag.ClientId"></select>
+                        </div>
+                        <div class="form-group p-3">
+                            <input type="submit" value="Создать" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr />
+            <div class="p-3">
+                <a asp-area="Admin" asp-controller="Game" asp-action="Info" class="btn btn-outline-info">Вернуться</a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

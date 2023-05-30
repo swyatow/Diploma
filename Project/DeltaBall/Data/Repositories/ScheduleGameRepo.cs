@@ -1,6 +1,8 @@
 ﻿using DeltaBall.Data.Models;
 using DeltaBall.Data.Repositories.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace DeltaBall.Data.Repositories
 {
@@ -51,26 +53,39 @@ namespace DeltaBall.Data.Repositories
 		}
 
         /// <summary>
-        /// Сохраняет информацию об игре
+        /// Создает новую игру и устанавливает ей создателя
         /// </summary>
         /// <param name="obj">Объект игры</param>
-		public void SaveGame(ScheduleGame obj, Guid creatorId)
+        /// <param name="creatorId">ID создателя игры</param>
+		public void CreateGame(ScheduleGame obj, Guid creatorId)
         {
             var price = _context.Prices.FirstOrDefault(x => x.ScenarioId == obj.ScenarioId && x.GameTypeId == obj.TypeId).Value * obj.Hours;
             var client = _context.Clients.Include(x=>x.Rank).FirstOrDefault(x => x.Id == creatorId);
             obj.StatusId = 4;
             obj.Price = price;
+            var newPrice = Math.Round(price * (double)((100 - (float)client.Rank.Discount) / 100), 1);
 			Player creator = new Player()
             {
                 ClientId = creatorId,
                 GameId = obj.Id,
                 IsCreator = true,
-                Price = price * ((100 - client.Rank.Discount) / 100),
+                Price = newPrice,
             };
 			_context.Entry(obj).State = EntityState.Added;
 			_context.Entry(creator).State = EntityState.Added;
             _context.SaveChanges();
         }
+
+
+		/// <summary>
+		/// Сохраняет информацию об игре
+		/// </summary>
+		/// <param name="obj">Объект игры</param>
+		public void SaveGame(ScheduleGame obj)
+		{
+			_context.Entry(obj).State = EntityState.Modified;
+			_context.SaveChanges();
+		}
 
 		/// <summary>
 		/// Удаляет игру

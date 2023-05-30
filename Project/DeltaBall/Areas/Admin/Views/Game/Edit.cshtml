@@ -1,0 +1,105 @@
+﻿@using DeltaBall.Services.Helpers;
+@model DeltaBall.Data.Models.ScheduleGame
+@{
+	var players = ViewData["Players"] as IEnumerable<Player>;
+	var properties = typeof(Client).GetProperties();
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">@ViewData["Title"]</h5>
+        <div class="card rounded mb-0">
+            <div class="row m-3">
+				<div class="col-md-6">
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.Name)</h5>
+						<p>@Model.Name</p>
+					</div>
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.Price)</h5>
+						<p>@Model.Price рублей</p>
+					</div>
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.StartDate)</h5>
+						<p>@Model.StartDate</p>
+					</div>
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.Hours)</h5>
+						<p>@Model.Hours часа(-ов)</p>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.RangeId)</h5>
+						<p>@Model.Range.Name</p>
+					</div>
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.ScenarioId)</h5>
+						<p>@Model.Scenario.Name</p>
+					</div>
+					<div>
+						<h5>@Html.DisplayNameFor(x=>x.TypeId)</h5>
+						<p>@Model.Type.Name</p>
+					</div>
+					<div>
+						<h5>Количество присоединившихся игроков</h5>
+						<p>@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
+					</div>
+				</div>
+				<div class="col-md-12 justify-content-center">
+					<table class="table table-hover">
+						<thead>
+							<tr class="table-primary">
+								<th class="col">
+									@AttributeHelper.GetDisplayValue(properties.First(x=>x.Name=="FullName"))
+								</th>
+								<th>Роль в игре</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var player in players)
+							{
+								<tr class="table-light">
+									<td>
+										@player.Client.FullName
+									</td>
+									@if (player.IsCreator)
+									{
+										<td>
+											Создатель
+										</td>
+									} else
+									{
+										<td>
+											Участник
+										</td>
+									} 
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">					
+					<form asp-action="Edit" method="post">
+						<input name="gameId" value="@Model.Id" hidden/>
+						<h5>@Html.DisplayNameFor(x=>x.StatusId)</h5>
+						<select name="statusId" class="form-select" asp-items="ViewBag.StatusId"></select>
+						<div class="p-3">
+							<input type="submit" value="Сохранить" class="btn btn-primary" />
+						</div>
+					</form>
+				</div>
+            </div>
+            <hr />
+            <div class="p-3">
+                <a asp-area="Admin" asp-controller="Game" asp-action="Info" class="btn btn-outline-info">Вернуться</a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

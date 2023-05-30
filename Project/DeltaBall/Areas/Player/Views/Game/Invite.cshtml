@@ -1,5 +1,65 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ScheduleGame
+
 @{
+	var client = ViewData["Client"] as Client;
+	var newPrice = (double)ViewData["Price"];
 }
+
+<div class="container-xxl py-5 justify-content-center">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+            <h2 class="text-uppercase">@ViewData["Title"]</h2>
+        </div>
+        <div class="col-lg-6 col-md-6 ">
+			<div class="row d-flex">
+				<div>
+					<h5 class="text-white">Цена с учетом вашего ранга (@client.Rank.Name)</h5>
+					@if(newPrice != Model.Price)
+					{
+						<p><strong>@newPrice</strong>  <s>@Model.Price</s> рублей</p>
+					} else
+					{
+						<p>@Model.Price рублей</p>
+					}
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.StartDate)</h5>
+					<p>@Model.StartDate</p>
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.Hours)</h5>
+					<p>@Model.Hours часа(-ов)</p>
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.RangeId)</h5>
+					<p>@Model.Range.Name</p>
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.ScenarioId)</h5>
+					<p>@Model.Scenario.Name</p>
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.TypeId)</h5>
+					<p>@Model.Type.Name</p>
+				</div>
+				<div>
+					<h5 class="text-white">Количество присоединившихся игроков</h5>
+					<p>@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
+				</div>
+				<div>
+					<h5 class="text-white">@Html.DisplayNameFor(x=>x.StatusId)</h5>
+					<p>@Model.Status.Name</p>
+				</div>
+			</div>
+        </div>
+    </div>
+    <hr />
+    <div class="p-3">
+		<form asp-action="Invite" method="post">
+			<input type="text" value="@Model.Id" name="GameId" hidden/>
+			<input type="text" value="@newPrice" name="Price" hidden/>
+			<input type="submit" value="Присоединиться" class="btn btn-primary" />
+			<a asp-area="Player" asp-controller="Home" asp-action="Profile" class="btn btn-outline-info">Отмена</a>
+		</form>
+	</div>
+</div>

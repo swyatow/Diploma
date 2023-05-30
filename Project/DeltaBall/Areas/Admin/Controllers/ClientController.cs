@@ -24,13 +24,17 @@ namespace DeltaBall.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["Title"] = "Добавление клиента";
-            ViewData["RankId"] = new SelectList(_dataManager.Ranks.GetRanks(), nameof(Client.Rank.Id), nameof(Client.Rank.Name), _dataManager.Ranks.GetRankById(1));
+            ViewData["RankId"] = new SelectList(
+                _dataManager.Ranks.GetRanks(), 
+                nameof(Client.Rank.Id), 
+                nameof(Client.Rank.Name), 
+                _dataManager.Ranks.GetRankById(1));
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,PhoneNumber,Email,Experience,RankId")] Client client)
+		public async Task<IActionResult> Create([Bind("Id,FullName,PhoneNumber,Email,Experience,RankId")] Client client)
         {
             ModelState.ClearValidationState("Rank");
             ModelState.MarkFieldValid("Rank");
@@ -58,7 +62,7 @@ namespace DeltaBall.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,FullName,PhoneNumber,Email,Experience,RankId")] Client client)
+		public async Task<IActionResult> Edit(Guid id, [Bind("Id,FullName,PhoneNumber,Email,Experience,RankId")] Client client)
         {
             if (id != client.Id)
             {

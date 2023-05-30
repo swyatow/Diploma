@@ -97,9 +97,9 @@
 									<ul class="list-group">
 										@foreach (var item in scheduleGames)
 										{
-											<li class="list-group-item" style="background-color: #42495E;">
-												<h3>@item.Game.Name</h3>
-												<a asp-action="Info" asp-area="Player" asp-controller="Game" asp-route-id="@item.Game.Id" class="btn btn-light-indigo">Подробно</a>
+											<li class="list-group-item m-1" style="background-color: #42495E;">
+												<h3>@item.Game.Name Дата: @item.Game.StartDate Цена: @item.Price</h3>
+												@Html.ActionLink("...","Info","Game",new {id=item.Game.Id, isEnded = "false"}, new {@class="btn btn-light-indigo"})
 											</li>
 										}										
 									</ul>
@@ -116,8 +116,9 @@
 									<ul class="list-group">
 										@foreach (var item in endedGames)
 										{
-											<li class="list-group-item">
-												First item
+											<li class="list-group-item m-1" style="background-color: #42495E;">
+												<h3>@item.Game.Name Дата: @item.Game.StartDate</h3>
+												@Html.ActionLink("...","Info","Game",new {id=item.Game.Id, isEnded = "true"}, new {@class="btn btn-light-indigo"})
 											</li>
 										}
 									</ul>
@@ -135,9 +136,18 @@
 									<ul class="list-group">
 										@foreach (var item in history)
 										{
-											<li class="list-group-item">
-												First item
-											</li>
+											if(item.DeltaExp >= 0)
+											{
+												<li class="list-group-item m-1" style="background-color: #68b362;">
+													<h3>Начислено опыта: @item.DeltaExp Дата: @item.ChangeDate Причина: @item.ChangeMode.Name</h3>
+												</li>
+											} else
+											{
+												<li class="list-group-item m-1" style="background-color: #e67a7d;">
+													<h3>Начислено опыта: @item.DeltaExp Дата: @item.ChangeDate Причина: @item.ChangeMode.Name</h3>
+												</li>
+											}
+
 										}
 									</ul>
 								}

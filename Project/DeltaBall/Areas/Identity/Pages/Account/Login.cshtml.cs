@@ -79,13 +79,13 @@ namespace DeltaBall.Areas.Identity.Pages.Account
                 var user = await _userManager.FindByEmailAsync(Input.Email);
                 if (user == null)
                 {
-					ModelState.AddModelError(string.Empty, "Непраильная почта и/или пароль. Повторите ввод.");
+					ModelState.AddModelError(string.Empty, "Неправильная почта и/или пароль. Повторите ввод.");
 					return Page();
 				} 
 				var result = await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation($"Польхователь {user.UserName} авторизовался.");
+                    _logger.LogInformation($"Пользователь {user.UserName} авторизовался.");
                     if (_userManager.IsInRoleAsync(user, "Admin").Result)
                         return LocalRedirect("/admin");
                     else
@@ -98,7 +98,7 @@ namespace DeltaBall.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Непраильная почта и/или пароль. Повторите ввод.");
+                    ModelState.AddModelError(string.Empty, "Неправильная почта и/или пароль. Повторите ввод.");
                     return Page();
                 }
             }

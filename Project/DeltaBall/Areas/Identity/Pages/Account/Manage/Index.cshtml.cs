@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using DeltaBall.Data;
+using DeltaBall.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -96,20 +97,34 @@ namespace DeltaBall.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
-
-            var client = _dataManager.Clients.GetClientById(Guid.Parse(user.Id));
-            client.FullName = Input.UserName;
-            client.PhoneNumber = Input.PhoneNumber;
-            client.Email = Input.Email;
-
-            if(await _dataManager.Clients.SaveClientAsync(client, null))
+            if(await _userManager.IsInRoleAsync(user, "Client"))
             {
-                await _signInManager.RefreshSignInAsync(user);
-                StatusMessage = "Ваши данные сохранены успешно.";
-            }
-            else 
-                StatusMessage = "Непредвиденная ошибка возникла при сохранении данных! Повторите позже.";
-            return RedirectToPage();
+				var client = _dataManager.Clients.GetClientById(Guid.Parse(user.Id));
+				client.FullName = Input.UserName;
+				client.PhoneNumber = Input.PhoneNumber;
+				client.Email = Input.Email;
+
+				if (await _dataManager.Clients.SaveClientAsync(client, null))
+				{
+					await _signInManager.RefreshSignInAsync(user);
+					StatusMessage = "Ваши данные сохранены успешно.";
+				}
+				else
+					StatusMessage = "Непредвиденная ошибка возникла при сохранении данных! Повторите позже.";
+			}
+			if ((await _userManager.SetUserNameAsync(user, Input.UserName)).Succeeded &&
+				(await _userManager.SetEmailAsync(user, Input.Email)).Succeeded &&
+				(await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber)).Succeeded)
+            {				
+				StatusMessage = "Ваши данные сохранены успешно.";
+			}
+			else
+				StatusMessage = "Непредвиденная ошибка возникла при сохранении данных! Повторите позже.";
+
+			await _userManager.UpdateNormalizedUserNameAsync(user);
+			await _userManager.UpdateNormalizedEmailAsync(user);
+			await _signInManager.RefreshSignInAsync(user);
+			return RedirectToPage();
         }
     }
 }

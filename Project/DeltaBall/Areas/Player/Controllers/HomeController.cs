@@ -8,7 +8,6 @@ namespace DeltaBall.Areas.Player.Controllers
     public class HomeController : Controller
     {
         private readonly DataManager _dataManager;
-		private Client currentClient;
 
         public HomeController(DataManager dataManager)
         {
@@ -19,7 +18,6 @@ namespace DeltaBall.Areas.Player.Controllers
         {
 			ViewData["Title"] = "Профиль";
             var userId = Guid.Parse(User.Claims.First().Value);
-			currentClient = _dataManager.Clients.GetClientById(userId);
 			ViewData["ScheduledGames"] = _dataManager.ScheduleGames.GetGamesByPlayer(userId);
 			ViewData["History"] = _dataManager.UserExpChanges.GetExpChangeByPlayer(userId);
             return View(_dataManager.Clients.GetClientById(userId));

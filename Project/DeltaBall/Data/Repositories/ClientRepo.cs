@@ -75,6 +75,7 @@ namespace DeltaBall.Data.Repositories
 					    PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, password)
 					};
 					_context.Entry(obj).State = EntityState.Added;
+					_context.Entry(user).State = EntityState.Added;
 				}
 				_context.SaveChanges();
 				await _userManager.AddToRoleAsync(user, "Client");

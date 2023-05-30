@@ -31,6 +31,7 @@ namespace DeltaBall.Data.Repositories
             return _context.UserExpChanges
                 .Include(x => x.ChangeMode)
 				.Include(x => x.Client)
+                .Include(x => x.Client.Rank)
                 .ToList();
         }
 
@@ -55,16 +56,18 @@ namespace DeltaBall.Data.Repositories
         /// <param name="obj">Объект с изменением</param>
 		public void SaveExpChange(UserExpChange obj)
         {
-            if (_context.UserExpChanges.Any(x => x.Id == obj.Id))
-            {                
-                _context.Entry(obj).State = EntityState.Modified;
+            var changeMode = _context.UserExpChangeModes.First(x => x.Id == obj.ChangeModeId);
+			obj.DeltaExp = 50 * changeMode.Multiplier;
+			if (_context.UserExpChanges.Any(x => x.Id == obj.Id))
+            {
+				_context.Entry(obj).State = EntityState.Modified;
             }
             else
             {
                 _context.Entry(obj).State = EntityState.Added;
             }
             var client = _context.Clients.First(x => x.Id == obj.ClientId);
-            client.Experience += obj.DeltaExp * obj.ChangeMode.Multiplier;
+            client.Experience += obj.DeltaExp;
             var newRank = _context.Ranks.First(x => x.MinExp <= client.Experience && x.MaxExp > client.Experience);
             client.RankId = newRank.Id;
 

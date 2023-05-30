@@ -12,7 +12,9 @@ namespace DeltaBall.Data.Repositories.Interfaces
 
         public IEnumerable<ScheduleGame> GetGamesByDate(DateTime date);
 
-        public void SaveGame(ScheduleGame obj, Guid creatorId);
+        public void CreateGame(ScheduleGame obj, Guid creatorId);
+
+        public void SaveGame(ScheduleGame obj);
 
         public bool DeleteGame(ScheduleGame obj);
     }

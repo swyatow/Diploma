@@ -19,7 +19,10 @@ namespace DeltaBall.Data.Repositories
         /// <returns></returns>
 		public Player GetPlayerById(Guid id)
 		{
-			return _context.Players.FirstOrDefault(x => x.Id == id);
+			return _context.Players
+                .Include(x => x.Client)
+                .Include(x => x.Game)
+                .FirstOrDefault(x => x.Id == id);
 		}
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace DeltaBall.Data.Repositories
         /// <returns></returns>
 		public IEnumerable<Player> GetPlayersForGame(Guid id)
 		{
-			return _context.Players.Where(x => x.GameId == id).ToList();
+			return _context.Players.Include(x=>x.Client).Include(x=>x.Game).Where(x => x.GameId == id).ToList();
 		}
 
         /// <summary>
