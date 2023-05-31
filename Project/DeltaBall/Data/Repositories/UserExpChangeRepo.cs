@@ -31,7 +31,6 @@ namespace DeltaBall.Data.Repositories
             return _context.UserExpChanges
                 .Include(x => x.ChangeMode)
 				.Include(x => x.Client)
-                .Include(x => x.Client.Rank)
                 .ToList();
         }
 

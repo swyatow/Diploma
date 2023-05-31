@@ -46,7 +46,7 @@ namespace DeltaBall.Areas.Player.Controllers
 			if (ModelState.IsValid)
 			{
 				_dataManager.ScheduleGames.CreateGame(game, Guid.Parse(User.Claims.First().Value));
-				return RedirectToAction("Info", "Game", new {id = game.Id.ToString(),isEnsed = false});
+				return RedirectToAction("Info", "Game", new {id = game.Id.ToString(), isEnded = "false"});
 			}
 			ViewData["RangeId"] = new SelectList(_dataManager.ShootRanges.GetRanges(), nameof(ScheduleGame.Range.Id), nameof(ScheduleGame.Range.Name));
 			ViewData["TypeId"] = new SelectList(_dataManager.GameTypes.GetTypes(), nameof(ScheduleGame.Type.Id), nameof(ScheduleGame.Type.Name));

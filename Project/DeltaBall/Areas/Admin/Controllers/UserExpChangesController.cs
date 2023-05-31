@@ -22,6 +22,7 @@ namespace DeltaBall.Areas.Admin.Controllers
 
         public IActionResult Info()
         {
+            ViewData["Title"] = "Таблица истории начисления опыта";
             return View(_dataManager.UserExpChanges.GetExpChanges());
         }
 

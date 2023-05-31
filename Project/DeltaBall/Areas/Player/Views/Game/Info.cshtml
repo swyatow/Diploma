@@ -2,9 +2,9 @@
 @model DeltaBall.Data.Models.ScheduleGame
 @{
 	string path = "https://"+ViewContext.HttpContext.Request.Host.Value+"/Player/Game/Invite/"+Model.Id;
+	var isEnded = ViewData["IsEnded"] as string;
 	var player = ViewData["Player"] as Player;
 	var client = ViewData["Client"] as Client;
-	var isEnded = ViewData["IsEnded"] as string;
 }
 
 <div class="container-xxl py-5">
@@ -68,7 +68,7 @@
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.StatusId)</h5>
 								<p>@Model.Status.Name</p>
 							</div>
-							<a asp-action="Profile" asp-area="Player" asp-controller="Home" class="btn btn-primary p-2">Вернуться</a>
+							<a asp-action="Profile" asp-area="Player" asp-controller="Home" class="btn btn-primary p-2"><span class="fa fa-backward"></span></a>
 						</div>
 					</div>
 				</div>

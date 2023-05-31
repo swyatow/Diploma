@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #EB1616;
+    --primary: #f3ff05;
     --secondary: #191C24;
     --light: #6C7293;
-    --dark: #000000;
+    --dark: #919191;
 }
 
 .back-to-top {
@@ -136,7 +136,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .85);
+    background: rgba(0, 0, 0, .25);
     z-index: 1;
 }
 
@@ -328,6 +328,7 @@
     color: var(--primary);
 }
 
-.w-60 {
-    width: 60% !important;
+/* My Styles */
+.w-55 {
+    width: 65% !important;
 }

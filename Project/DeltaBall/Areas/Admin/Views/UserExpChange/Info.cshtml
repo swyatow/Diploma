@@ -9,77 +9,35 @@
 				<table class="table table-hover mb-0">
 					<thead>
 						<tr class="table-primary">
-							@{
-								var item = Model.First();
-								var props = item.GetType().GetProperties();
-								foreach (var prop in props)
-								{
-									if (prop.PropertyType == typeof(string)
-									|| prop.PropertyType == typeof(int)
-									|| prop.PropertyType == typeof(double)
-									|| prop.PropertyType == typeof(bool)
-									|| prop.PropertyType == typeof(DateTime))
-									{
-										string name = AttributeHelper.GetDisplayValue(prop);
-										if (!name.Contains("Номер п/п"))
-										{
-											<th class="col">
-												@name
-											</th>
-										}										
-									}
-								}
-							}
-							<th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().Client.FullName)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().DeltaExp)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().ChangeMode.Name)
+							</th>
+							<th class="col">
+								@Html.DisplayNameFor(x=>x.First().ChangeDate)
 							</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach (var i in Model)
 						{
-						<tr class="table-light">
-								@{
-									var fields = i
-										.GetType()
-										.GetProperties()
-										.Where(x => x.PropertyType == typeof(string)
-										|| (x.PropertyType == typeof(int)
-										&& !AttributeHelper.GetDisplayValue(x).Contains("Номер"))
-										|| x.PropertyType == typeof(double)
-										|| x.PropertyType == typeof(bool)
-										|| x.PropertyType == typeof(DateTime)).ToList();
-									foreach (var field in fields)
-									{
-										var value = field.GetValue(i);
-										if (!field.Name.Equals("Id"))
-										{
-											if (field.Name.Contains("Id"))
-											{
-												var stringClass = field.Name.Replace("Id", "");
-												var stringNameSpace = "DeltaBall.Data.Models." ;
-												stringNameSpace += stringClass == "Scenario" ? "Game" + stringClass : stringClass;
-												var className = Type.GetType(stringNameSpace);
-												var fieldName = className.GetProperties().First(x => x.Name.Contains("Name"));
-												var instance = i.GetType().GetProperty(stringClass).GetValue(i);
-												<td>
-													@fieldName.GetValue(instance)
-												</td>
-											} 
-											else
-											{
-												<td>
-													@value
-												</td>
-											}											
-										}
-									}
-									}
+							<tr class="table-light">								
 								<td>
-									<div class="d-flex flex-center">
-										<a asp-area="Admin" asp-controller="@i.GetType().Name" asp-action="Delete" asp-route-id="@i.GetType().GetProperty("Id").GetValue(i)" class="btn btn-danger m-1 px-1">
-											Удалить
-										</a>
-									</div>
+									@i.Client.FullName
+								</td>
+								<td>
+									@i.DeltaExp
+								</td>
+								<td>
+									@i.ChangeMode.Name
+								</td>
+								<td>
+									@i.ChangeDate
 								</td>
 							</tr>
 						}								
