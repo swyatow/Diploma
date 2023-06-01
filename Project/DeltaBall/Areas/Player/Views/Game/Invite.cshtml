@@ -13,42 +13,42 @@
         <div class="col-lg-6 col-md-6 ">
 			<div class="row d-flex">
 				<div>
-					<h5 class="text-white">Цена с учетом вашего ранга (@client.Rank.Name)</h5>
+					<h4 class="text-white"><u>Цена с учетом вашего ранга (@client.Rank.Name)</u></h4>
 					@if(newPrice != Model.Price)
 					{
-						<p><strong>@newPrice</strong>  <s>@Model.Price</s> рублей</p>
+						<p class="text-primary"><strong>@newPrice</strong>  <s>@Model.Price</s> рублей</p>
 					} else
 					{
-						<p>@Model.Price рублей</p>
+						<p class="text-primary">@Model.Price рублей</p>
 					}
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.StartDate)</h5>
-					<p>@Model.StartDate</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.StartDate)</u></h4>
+					<p class="text-primary">@Model.StartDate</p>
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.Hours)</h5>
-					<p>@Model.Hours часа(-ов)</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.Hours)</u></h4>
+					<p class="text-primary">@Model.Hours часа(-ов)</p>
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.RangeId)</h5>
-					<p>@Model.Range.Name</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.RangeId)</u></h4>
+					<p class="text-primary">@Model.Range.Name</p>
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.ScenarioId)</h5>
-					<p>@Model.Scenario.Name</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.ScenarioId)</u></h4>
+					<p class="text-primary">@Model.Scenario.Name</p>
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.TypeId)</h5>
-					<p>@Model.Type.Name</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.TypeId)</u></h4>
+					<p class="text-primary">@Model.Type.Name</p>
 				</div>
 				<div>
-					<h5 class="text-white">Количество присоединившихся игроков</h5>
-					<p>@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
+					<h4 class="text-white"><u>Количество присоединившихся игроков</u></h4>
+					<p class="text-primary">@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
 				</div>
 				<div>
-					<h5 class="text-white">@Html.DisplayNameFor(x=>x.StatusId)</h5>
-					<p>@Model.Status.Name</p>
+					<h4 class="text-white"><u>@Html.DisplayNameFor(x=>x.StatusId)</u></h4>
+					<p class ="text-primary">@Model.Status.Name</p>
 				</div>
 			</div>
         </div>

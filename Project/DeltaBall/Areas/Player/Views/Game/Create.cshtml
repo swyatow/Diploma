@@ -14,35 +14,35 @@
             <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group p-3">
-                    <label asp-for="Name" class="form-label"></label>
+                    <label asp-for="Name" class="form-label text-primary"></label>
                     <input asp-for="Name" class="form-control" aria-required="true" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group p-1 px-3">
-                    <label asp-for="StartDate" class="form-label"></label>
+                    <label asp-for="StartDate" class="form-label text-primary"></label>
                     <input asp-for="StartDate" class="form-control" aria-required="true" min="@datetimeString"/>
                     <span asp-validation-for="StartDate" class="text-danger"></span>
                 </div>
                 <div class="form-group p-1 px-3">
-                    <label asp-for="Hours" class="form-label"></label>
+                    <label asp-for="Hours" class="form-label text-primary"></label>
                     <input asp-for="Hours" class="form-control" aria-required="true" max="5" step="1" min="1"/>
                     <span asp-validation-for="Hours" class="text-danger"></span>
                 </div>
                 <div class="form-group p-1 px-3">
-                    <label asp-for="MaxPeoples" class="form-label"></label>
+                    <label asp-for="MaxPeoples" class="form-label text-primary"></label>
                     <input asp-for="MaxPeoples" class="form-control" aria-required="true"min="2" max="20"/>
                     <span asp-validation-for="MaxPeoples" class="text-danger"></span>
                 </div>
                 <div class="form-group p-1 px-3">
-                    <label asp-for="RangeId" class="form-label"></label>
+                    <label asp-for="RangeId" class="form-label text-primary"></label>
                     <select asp-for="RangeId" class="form-select" asp-items="ViewBag.RangeId"></select>
                 </div>
                 <div class="form-group p-1 px-3">
-                    <label asp-for="ScenarioId" class="form-label"></label>
+                    <label asp-for="ScenarioId" class="form-label text-primary"></label>
                     <select asp-for="ScenarioId" class="form-select" asp-items="ViewBag.ScenarioId"></select>
                 </div>
                 <div class="form-group p-3">
-                    <label asp-for="TypeId" class="form-label"></label>
+                    <label asp-for="TypeId" class="form-label text-primary"></label>
                     <select asp-for="TypeId" class="form-select" asp-items="ViewBag.TypeId"></select>
                 </div>
                 <div class="form-group p-3">

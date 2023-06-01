@@ -22,16 +22,16 @@
 						<h3 class="text-uppercase mb-3">Данные профиля</h3>
 						<div class="row d-flex">
 							<div>
-								<h5 class="text-white">@Html.DisplayNameFor(x=>x.FullName)</h5>
-								<p>@Model.FullName</p>
+								<h5 class="text-white"><u>@Html.DisplayNameFor(x=>x.FullName)</u></h5>
+								<p class="text-white">@Model.FullName</p>
 							</div>
 							<div>
-								<h5 class="text-white">@Html.DisplayNameFor(x=>x.Email)</h5>
-								<p>@Model.Email</p>
+								<h5 class="text-white"><u>@Html.DisplayNameFor(x=>x.Email)</u></h5>
+								<p class="text-white">@Model.Email</p>
 							</div>
 							<div>
-								<h5 class="text-white">@Html.DisplayNameFor(x=>x.PhoneNumber)</h5>
-								<p>@Model.PhoneNumber</p>							
+								<h5 class="text-white"><u>@Html.DisplayNameFor(x=>x.PhoneNumber)</u></h5>
+								<p class="text-white">@Model.PhoneNumber</p>
 								<a asp-action="Create" asp-area="Player" asp-controller="Game" class="p-2">Создать игру</a>
 							</div>
 						</div>
@@ -78,13 +78,13 @@
 						<!-- Nav Tabs Start -->
 						<ul class="nav nav-tabs nav-justified mb-3">
 							<li class="nav-item">
-								<a class="nav-link active" data-bs-toggle="tab" href="#scheduleGames">Запланированные игры</a>
+								<a class="nav-link active text-primary" data-bs-toggle="tab" href="#scheduleGames">Запланированные игры</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-bs-toggle="tab" href="#endedGames">Завершенные игры</a>
+							<li class="nav-item text-primary">
+								<a class="nav-link text-primary" data-bs-toggle="tab" href="#endedGames">Завершенные игры</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-bs-toggle="tab" href="#history">История начисления опыта</a>
+							<li class="nav-item text-primary">
+								<a class="nav-link text-primary" data-bs-toggle="tab" href="#history">История начисления опыта</a>
 							</li>
 						</ul>
 						<!-- Nav Tabs End -->

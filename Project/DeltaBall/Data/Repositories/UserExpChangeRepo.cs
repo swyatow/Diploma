@@ -31,6 +31,7 @@ namespace DeltaBall.Data.Repositories
             return _context.UserExpChanges
                 .Include(x => x.ChangeMode)
 				.Include(x => x.Client)
+                .OrderByDescending(x=>x.ChangeDate)
                 .ToList();
         }
 
@@ -45,7 +46,7 @@ namespace DeltaBall.Data.Repositories
                 .Where(x => x.ClientId == id)
                 .Include(x=>x.ChangeMode)
                 .Include(x=>x.Client)
-                .OrderBy(x=>x.ChangeDate)
+                .OrderByDescending(x=>x.ChangeDate)
                 .ToList();
 		}
 

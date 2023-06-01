@@ -19,7 +19,7 @@
             <div class="form-floating mb-3">
                 <input asp-for="Input.PhoneNumber" class="form-control" autocomplete="phone" aria-required="true" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{9,9}$" />
                 <label asp-for="Input.PhoneNumber">Номер телефона</label>                
-                <div id="phoneHelp" class="form-text justify-content-left">Телефон формата 8(123)456-78-90.</div>
+                <div id="phoneHelp" class="form-text text-white justify-content-left">Телефон формата 8(123)456-78-90.</div>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
@@ -39,7 +39,7 @@
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Зарегистрироваться</button>
             <div>
-                <p>
+                <p class="text-white">
                     Уже есть аккаунт? 
                     <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Войти</a> в систему.
                 </p>

@@ -26,47 +26,47 @@
 							{
 								<div>
 									<h5 class="text-white">@Html.DisplayNameFor(x=>x.Price)</h5>
-									<p>@Model.Price рублей</p>
+									<p class="text-primary">@Model.Price рублей</p>
 								</div>
 							}
 							<div>
 								<h5 class="text-white">Цена с учетом вашего ранга (@client.Rank.Name)</h5>
 								@if (player.Price != Model.Price)
 								{
-									<p><strong>@player.Price</strong>  <s>@Model.Price</s> рублей</p>
+									<p class="text-primary"><strong>@player.Price</strong>  <s>@Model.Price</s> рублей</p>
 								}
 								else
 								{
-									<p>@Model.Price рублей</p>
+									<p class="text-primary">@Model.Price рублей</p>
 								}
 							</div>							
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.StartDate)</h5>
-								<p>@Model.StartDate</p>
+								<p class="text-primary"> @Model.StartDate</p>
 							</div>
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.Hours)</h5>
-								<p>@Model.Hours часа(-ов)</p>
+								<p class ="text-primary">@Model.Hours часа(-ов)</p>
 							</div>
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.RangeId)</h5>
-								<p>@Model.Range.Name</p>
+								<p class="text-primary">@Model.Range.Name</p>
 							</div>
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.ScenarioId)</h5>
-								<p>@Model.Scenario.Name</p>
+								<p class="text-primary">@Model.Scenario.Name</p>
 							</div>
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.TypeId)</h5>
-								<p>@Model.Type.Name</p>
+								<p class="text-primary">@Model.Type.Name</p>
 							</div>
 							<div>
 								<h5 class="text-white">Количество присоединившихся игроков</h5>
-								<p>@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
+								<p class="text-primary">@ViewData["PeoplesCount"] игрок(-ов) из @Model.MaxPeoples</p>
 							</div>
 							<div>
 								<h5 class="text-white">@Html.DisplayNameFor(x=>x.StatusId)</h5>
-								<p>@Model.Status.Name</p>
+								<p class="text-primary">@Model.Status.Name</p>
 							</div>
 							<a asp-action="Profile" asp-area="Player" asp-controller="Home" class="btn btn-primary p-2"><span class="fa fa-backward"></span></a>
 						</div>
@@ -88,7 +88,7 @@
 								<div>
 									<h5 class="text-white">Для приглашения игроков воспользуйтесь приведенной ссылкой</h5>
 									<div id="qrcode" class="d-flex p-3 justify-content-center img-responsive"></div>
-									<p>@path</p>
+									<p class="text-primary">@path</p>
 								</div>
 							</div>
 						</div>
